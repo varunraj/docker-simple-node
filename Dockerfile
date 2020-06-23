@@ -2,13 +2,15 @@
 
 FROM node:alpine
 
-# Copy local files to container. Path is relative to build context
+# Copy package.json and install dependencies
+
+COPY ./package.json ./
+RUN npm install
+
+
+#Copy everything else. This approach will not copy everything if dependencies dont change.
 
 COPY ./ ./
-
-# Install dependencies
-
-RUN npm install
 
 # Start command
 
