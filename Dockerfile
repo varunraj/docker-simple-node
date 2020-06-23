@@ -2,6 +2,8 @@
 
 FROM node:alpine
 
+WORKDIR /usr/app
+
 # Copy package.json and install dependencies
 
 COPY ./package.json ./
